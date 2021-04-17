@@ -1,188 +1,106 @@
 <template>
-  <div class="Gallery">
-    <h1 class="title">Inside my world</h1>
-    <div class="container">
-      <!--Landscape-->
-      <div class="gallery-container w-3 h-2">
-        <div class="gallery-item">
-          <div class="image">
-            <img src="https://i.imgur.com/cAb1soK.jpg" />
-          </div>
-        </div>
-      </div>
-      <!--Landscape-->
+  <div class="gallery">
+    <h1 class="titleGallery">Inside my world</h1>
 
-      <div class="gallery-container w-3 h-2">
-        <div class="gallery-item">
-          <div class="image">
-            <img src="https://i.imgur.com/fkbKu1F.jpg" />
-          </div>
-        </div>
-      </div>
-      <!--Portrait-->
-
-      <div class="gallery-container w-1 h-3">
-        <div class="gallery-item">
-          <div class="image">
-            <img src="https://i.imgur.com/6KFjps8.jpg" />
-          </div>
-        </div>
-      </div>
-
-      <!--Portrait-->
-
-      <div class="gallery-container w-1 h-3">
-        <div class="gallery-item">
-          <div class="image">
-            <img src="https://i.imgur.com/TI4hVWI.jpg" />
-          </div>
-        </div>
-      </div>
-      <!--Landscape-->
-
-      <div class="gallery-container w-3 h-2">
-        <div class="gallery-item">
-          <div class="image">
-            <img src="https://i.imgur.com/3CUU2M6.jpg" />
-          </div>
-        </div>
-      </div>
-      <!--Landscape-->
-
-      <div class="gallery-container w-3 h-2">
-        <div class="gallery-item">
-          <div class="image">
-            <img src="https://i.imgur.com/vgnDACt.jpg" />
-          </div>
-        </div>
-      </div>
-      <!--Portrait-->
-
-      <div class="gallery-container w-1 h-3">
-        <div class="gallery-item">
-          <div class="image">
-            <img src="https://i.imgur.com/F4i2NaC.jpg" />
-          </div>
-        </div>
-      </div>
-
-      <!--Portrait-->
-      <div class="gallery-container w-1 h-3">
-        <div class="gallery-item">
-          <div class="image">
-            <img src="https://i.imgur.com/Vt1qpNA.jpg" />
-          </div>
-        </div>
+    <div class="photos">
+      <div class="image" v-for="(image, index) in images" :key="index">
+        <a :href="image" target="_blank">
+          <img :src="image" />
+        </a>
       </div>
     </div>
   </div>
 </template>
-
 <script>
+// Viewport orientation if portrait 0 else 1
+// width < heigh ⇒ portrait
+// width > height ⇒ landscape
+
 export default {
   name: 'Gallery',
+  data() {
+    return {
+      accesKey: process.env.VUE_APP_SERVICE_ACCESS_KEY,
+      url: 'https://api.unsplash.com/users/sudanmerinosu/photos/',
+      images: {},
+    };
+  },
+  methods: {
+    fetchPictures() {
+      fetch(`${this.url}?client_id=${this.accesKey}`)
+        .then((res) => res.json())
+        .then((json) => {
+          json.forEach((data, index) => {
+            this.images[index] = data.urls.regular;
+            this.$forceUpdate();
+          });
+        })
+        .catch((err) => {
+          console.error('error', err);
+        });
+    },
+  },
+
+  created() {
+    this.fetchPictures();
+    console.log(this.images);
+  },
 };
 </script>
 
 <style>
-body {
-  margin: 20px;
-  padding: 0;
+.gallery {
+  margin: 100px;
+}
+.titleGallery {
   text-align: center;
 }
-.container {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 100px 300px;
-  grid-gap: 10px;
-  grid-auto-flow: dense;
-}
-
-.gallery-item {
-  width: 100%;
-  height: 100%;
+.photos {
   position: relative;
+  column-count: 3;
+  padding: 20px;
 }
-
-.gallery-item .image {
-  width: 100%;
-  height: 100%;
+.image {
+  display: inline-block;
+  overflow: hidden;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  border-radius: 4px;
+  transition: all 500ms;
   overflow: hidden;
 }
-
-.gallery-item .image img {
+.image:hover {
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: translateY(-3px) scale(1.1);
+}
+img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
-  cursor: pointer;
   transition: 0.5s ease-in-out;
 }
-.gallery-item:hover .image img {
+.image:hover img {
   transform: scale(1.5);
 }
-
-.w-1 {
-  grid-column: span 1;
-}
-.w-2 {
-  grid-column: span 2;
-}
-.w-3 {
-  grid-column: span 3;
-}
-.w-4 {
-  grid-column: span 4;
-}
-.w-5 {
-  grid-column: span 5;
-}
-.w-6 {
-  grid-column: span 6;
-}
-
-.h-1 {
-  grid-row: span 1;
-}
-.h-2 {
-  grid-row: span 2;
-}
-.h-3 {
-  grid-row: span 3;
-}
-.h-4 {
-  grid-row: span 4;
-}
-.h-5 {
-  grid-row: span 5;
-}
-.h-6 {
-  grid-row: span 6;
-}
-
-@media screen and (max-width: 500px) {
-  .container {
-    grid-template-columns: repeat(1, 1fr);
+@media screen and (max-width: 1024px) {
+  .gallery {
+    margin: 75px;
   }
-  .w-1,
-  .w-2,
-  .w-3,
-  .w-4,
-  .w-5,
-  .w-6 {
-    grid-column: span 1;
+  .photos {
+    column-count: 2;
   }
 }
-
-@keyframes move-down {
-  0% {
-    top: 10%;
+@media screen and (max-width: 768px) {
+  .gallery {
+    margin: 50px;
   }
-  50% {
-    top: 35%;
+  .photos {
+    column-count: 2;
   }
-  100% {
-    top: 50%;
+}
+@media screen and (max-width: 375px) {
+  .gallery {
+    margin: 10px;
+  }
+  .photos {
+    column-count: 1;
   }
 }
 </style>

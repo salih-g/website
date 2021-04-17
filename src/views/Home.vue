@@ -50,9 +50,6 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
-
 .main {
   display: flex;
   justify-content: center;
@@ -170,6 +167,6 @@ export default {
   left: 225px;
 }
 
-@media only screen and (max-width: 820) {
+@media only screen and (max-width: 820px) {
 }
 </style>
