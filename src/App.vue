@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <div class="nav">
+      <a href="/">Home</a> |
+      <a href="/gallery">Gallery</a>
+    </div>
     <router-view />
   </div>
 </template>
@@ -12,8 +16,9 @@
   position: relative;
 }
 .nav {
-  margin: 20px 0 -20px 0;
-  text-align: center;
+  position: absolute;
+  top: 30px;
+  left: 30px;
   z-index: 100;
 }
 
@@ -25,5 +30,17 @@
 
 .nav a:active {
   color: #42568b;
+}
+@media only screen and (max-width: 620px) {
+  .nav {
+    margin: 20px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .nav {
+    margin: 20px;
+    text-align: center;
+  }
 }
 </style>
