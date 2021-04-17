@@ -1,6 +1,8 @@
 <template>
   <div class="gallery">
-    <h1 class="titleGallery">Inside my world</h1>
+    <h1 class="titleGallery">
+      Take a flight into my world
+    </h1>
 
     <div class="photos">
       <div class="image" v-for="(image, index) in images" :key="index">
