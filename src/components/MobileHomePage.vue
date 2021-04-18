@@ -109,13 +109,15 @@ export default {};
   grid-area: 4 / 2 / 5 / 3;
   font-family: Kalam;
   font-size: 18px;
-  padding-left: 10px;
-  padding-top: 2px;
+}
+.parag-mobile {
+  padding-top: 10px;
 }
 .address-mobile {
   font-size: 24px;
   display: flex;
   justify-content: center;
+  padding-top: 50px;
 }
 
 .footer-mobile {
