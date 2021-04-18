@@ -57,8 +57,8 @@ export default {};
 }
 .grid-container-mobile {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 0px 0px;
   grid-template-areas:
     'home-mobile home-mobile'
@@ -68,8 +68,8 @@ export default {};
 
 .home-mobile {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 0px 0px;
   grid-template-areas:
     'page-mobile page-mobile page-mobile'
@@ -79,30 +79,26 @@ export default {};
 
 .page-mobile {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.5fr 1.5fr 0.4fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 0.5fr 1.5fr 0.2fr 1.2fr 1fr;
   gap: 0px 0px;
-  grid-template-areas:
-    '. . .'
-    '. picture-mobile .'
-    '. title-mobile .'
-    '. hello-description-mobile .'
-    '. footer-mobile .';
   grid-area: page-mobile;
 }
 
 .picture-mobile {
-  grid-area: picture-mobile;
+  grid-area: 2 / 2 / 3 / 3;
+  z-index: 1;
 }
 
 .title-mobile {
-  grid-area: title-mobile;
+  grid-area: 2 / 2 / 4 / 3;
   background-color: #e8e8e8;
   position: relative;
   top: 0px;
 }
 .text-mobile {
   position: absolute;
+  bottom: 50px;
   left: 20px;
   letter-spacing: 2px;
   line-height: 15px;
@@ -110,7 +106,7 @@ export default {};
 }
 
 .hello-description-mobile {
-  grid-area: hello-description-mobile;
+  grid-area: 4 / 2 / 5 / 3;
   font-family: Kalam;
   font-size: 18px;
   padding-left: 10px;
@@ -123,7 +119,7 @@ export default {};
 }
 
 .footer-mobile {
-  grid-area: footer-mobile;
+  grid-area: 5 / 2 / 6 / 3;
 }
 .footer-mobile a {
   padding: 50px;

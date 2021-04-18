@@ -19,7 +19,6 @@
   position: absolute;
   top: 30px;
   left: 30px;
-  z-index: 100;
 }
 
 .nav a {
@@ -33,14 +32,16 @@
 }
 @media only screen and (max-width: 620px) {
   .nav {
-    margin: 20px;
-    text-align: center;
+    position: absolute;
+    top: 5px;
+    left: 30px;
   }
 }
 @media only screen and (max-width: 375px) {
   .nav {
-    margin: 20px;
-    text-align: center;
+    position: absolute;
+    top: 10px;
+    left: 10px;
   }
 }
 </style>

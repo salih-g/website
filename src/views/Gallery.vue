@@ -56,6 +56,7 @@ export default {
 }
 .titleGallery {
   text-align: center;
+  padding-top: 20px;
 }
 .photos {
   position: relative;
