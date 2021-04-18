@@ -80,29 +80,29 @@ export default {};
 .page-mobile {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 0.4fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1.5fr 0.4fr 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
+    '. . .'
     '. picture-mobile .'
     '. title-mobile .'
-    'hello-description-mobile hello-description-mobile hello-description-mobile'
-    'footer-mobile footer-mobile footer-mobile';
+    '. hello-description-mobile .'
+    '. footer-mobile .';
   grid-area: page-mobile;
 }
 
 .picture-mobile {
   grid-area: picture-mobile;
-  z-index: 1;
 }
 
 .title-mobile {
   grid-area: title-mobile;
   background-color: #e8e8e8;
   position: relative;
+  top: 0px;
 }
 .text-mobile {
   position: absolute;
-  top: 35px;
   left: 20px;
   letter-spacing: 2px;
   line-height: 15px;
@@ -111,40 +111,30 @@ export default {};
 
 .hello-description-mobile {
   grid-area: hello-description-mobile;
-  position: relative;
   font-family: Kalam;
   font-size: 18px;
   padding-left: 10px;
   padding-top: 2px;
 }
 .address-mobile {
-  position: absolute;
-  bottom: 100px;
-  left: 110px;
   font-size: 24px;
+  display: flex;
+  justify-content: center;
 }
 
 .footer-mobile {
   grid-area: footer-mobile;
-  position: relative;
 }
 .footer-mobile a {
   padding: 50px;
   color: black;
 }
 .left-icons-mobile {
-  position: absolute;
-  top: 0px;
-  left: 60px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: center;
 }
 .right-icons-mobile {
-  position: absolute;
-  top: 50px;
-  left: 60px;
-
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: center;
 }
 </style>
