@@ -23,13 +23,13 @@ export default {
   data() {
     return {
       accesKey: process.env.VUE_APP_SERVICE_ACCESS_KEY,
-      url: 'https://api.unsplash.com/users/sudanmerinosu/photos/',
+      url: 'https://api.unsplash.com/users/sudanmerinosu/photos?per_page=100&query=10&',
       images: {},
     };
   },
   methods: {
     fetchPictures() {
-      fetch(`${this.url}?client_id=${this.accesKey}`)
+      fetch(`${this.url}client_id=${this.accesKey}`)
         .then((res) => res.json())
         .then((json) => {
           json.forEach((data, index) => {
@@ -45,7 +45,7 @@ export default {
 
   created() {
     this.fetchPictures();
-    console.log(this.images);
+    // console.log(this.images);
   },
 };
 </script>
