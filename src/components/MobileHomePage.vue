@@ -4,7 +4,9 @@
       <div class="home-mobile">
         <div class="page-mobile">
           <div class="picture-mobile">
-            <div class="header-picture"><img src="../assets/images/header.jpg" alt="" /></div>
+            <div class="header-picture">
+              <img src="../assets/images/me.jpg" class="headerImg-mobile" />
+            </div>
           </div>
           <div class="title-mobile">
             <div class="text-mobile">
@@ -88,6 +90,10 @@ export default {};
 .picture-mobile {
   grid-area: 2 / 2 / 3 / 3;
   z-index: 1;
+}
+.headerImg-mobile {
+  width: 309px;
+  height: 309px;
 }
 
 .title-mobile {

@@ -3,7 +3,7 @@
     <div class="grid-container">
       <div class="home">
         <div class="page">
-          <div class="picture"><img src="../assets/images/header.jpg" alt="" /></div>
+          <div class="picture"><img src="../assets/images/me.jpg" class="headerImg" /></div>
           <div class="title">
             <div class="text">
               <p><b>Salih </b>Gümüş</p>
@@ -102,6 +102,10 @@ export default {
 .picture {
   grid-area: 2 / 3 / 5 / 6;
   z-index: 1;
+}
+.headerImg {
+  width: 309px;
+  height: 309px;
 }
 
 .title {
