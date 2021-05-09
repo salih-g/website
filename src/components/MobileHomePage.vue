@@ -19,7 +19,7 @@
             <h1 class="hello-mobile">Hello.</h1>
             <div class="description-mobile">
               <p class="parag-mobile">
-                I'm a Computer Engineering student. I'm mid-level Full-Stack developer and junior
+                I'm a Computer Engineering student. I'm beginner full-stack developer and junior
                 game developer. Also I'm an amateur photographer.
               </p>
               <div class="address-mobile">Adana/Turkey</div>
@@ -63,9 +63,9 @@ export default {};
   grid-template-rows: repeat(3, 1fr);
   gap: 0px 0px;
   grid-template-areas:
-    'home-mobile home-mobile'
-    'home-mobile home-mobile'
-    'home-mobile home-mobile';
+    "home-mobile home-mobile"
+    "home-mobile home-mobile"
+    "home-mobile home-mobile";
 }
 
 .home-mobile {
@@ -74,8 +74,8 @@ export default {};
   grid-template-rows: repeat(2, 1fr);
   gap: 0px 0px;
   grid-template-areas:
-    'page-mobile page-mobile page-mobile'
-    'page-mobile page-mobile page-mobile';
+    "page-mobile page-mobile page-mobile"
+    "page-mobile page-mobile page-mobile";
   grid-area: home-mobile;
 }
 
@@ -108,7 +108,7 @@ export default {};
   left: 20px;
   letter-spacing: 2px;
   line-height: 15px;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .hello-description-mobile {

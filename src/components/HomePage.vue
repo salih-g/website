@@ -14,7 +14,7 @@
           <div class="hello"><h1 class="hello">Hello.</h1></div>
           <div class="description">
             <p class="parag">
-              I'm a Computer Engineering student. I'm mid-level Full-Stack developer and junior game
+              I'm a Computer Engineering student. I'm beginner full-stack developer and junior game
               developer. Also I'm an amateur photographer.
             </p>
             <div class="address">Adana/Turkey</div>
